@@ -1,12 +1,13 @@
 import classnames from 'classnames'
 import useColor from '../../../hooks/useColor'
+import useSlotTime from '../../../hooks/useSlotTime'
 import Block from '../../Block/Block'
 import Hand from '../../Hand/Hand'
 
 interface Props {
   title: string
   duration: number
-  starts: string
+  starts: number
   topPad?: boolean
   bottomPad?: boolean
 }
@@ -21,10 +22,14 @@ export default function Slot({ title, duration, starts, topPad = true, bottomPad
     'mb-4': bottomPad,
   })
 
+  const time = (
+    useSlotTime(starts)
+  )
+
   return (
     <div className="relative z-10">
       <div className={`flex items-center ${slotClasses}`}>
-        <Block text={starts} units={duration} color={color} />
+        <Block text={time} units={duration} color={color} />
         <Hand text={title} handColor="gray-300" />
       </div>
 
