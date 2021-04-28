@@ -1,7 +1,9 @@
+import Block from '../components/Block/Block'
+
 export default function Home() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center">
-      <p>hello world</p>
+    <div className="w-screen h-screen p-6">
+      <Block title="hello-world-how" units={4} />
     </div>
   )
 }
