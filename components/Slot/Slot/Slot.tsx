@@ -8,27 +8,20 @@ interface Props {
   title: string
   duration: number
   starts: number
-  topPad?: boolean
-  bottomPad?: boolean
 }
 
-export default function Slot({ title, duration, starts, topPad = true, bottomPad = false }: Props) {
+export default function Slot({ title, duration, starts }: Props) {
   const color = (
     useColor(title)
   )
-
-  const slotClasses = classnames({
-    'mt-4': topPad,
-    'mb-4': bottomPad,
-  })
 
   const time = (
     useSlotTime(starts)
   )
 
   return (
-    <div className="relative z-10">
-      <div className={`flex items-center ${slotClasses}`}>
+    <div className="my-2 relative z-10">
+      <div className={`flex items-center`}>
         <Block text={time} units={duration} color={color} />
         <Hand text={title} handColor="gray-300" />
       </div>

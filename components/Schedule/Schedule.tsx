@@ -30,8 +30,7 @@ export default function Schedule({ schedule }: Props) {
         key={index}
         title={slot.title}
         duration={duration}
-        starts={slot.starts}
-        bottomPad={index === schedule.length - 1} />
+        starts={slot.starts} />
     )
   })
 
