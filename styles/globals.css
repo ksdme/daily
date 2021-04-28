@@ -6,6 +6,10 @@
   font-family: 'Orienta', sans-serif;
 }
 
+.-z-10 {
+  z-index: -10;
+}
+
 html, body {
   @apply font-orienta
 }
