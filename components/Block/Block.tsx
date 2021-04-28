@@ -16,12 +16,12 @@ export default function Block({ title, units, unit = 6 }: Props) {
   }
 
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-1/4 flex flex-col">
       <div className="text-sm text-gray-600">
         {title}
       </div>
 
-      <div style={style} className={`w-1/4 bg-${bgColor} rounded shadow`}>
+      <div style={style} className={`bg-${bgColor} rounded shadow`}>
         &nbsp;
       </div>
     </div>
