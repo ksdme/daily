@@ -1,19 +1,23 @@
 import useColor from '../../hooks/useColor'
+import useHeight from '../../hooks/useHeight'
 
 interface Props {
   text: string
   units: number
-  unit?: number
   colorSeed: string
 }
 
-export default function Block({ text, colorSeed, units, unit = 5 }: Props) {
+export default function Block({ text, colorSeed, units }: Props) {
   const bgColor = (
     useColor(colorSeed)
   )
 
+  const height = (
+    useHeight(units)
+  )
+
   const style = {
-    height: `${unit * units}rem`
+    height: `${height}rem`
   }
 
   return (
