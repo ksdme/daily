@@ -19,7 +19,7 @@ export default function Slot({ title, duration, starts, topPad = true, bottomPad
   return (
     <div className={`flex items-center ${classes}`}>
       <Block text={starts} units={duration} colorSeed={title} />
-      <Hand text={title} handColor="gray-400" />
+      <Hand text={title} handColor="gray-300" />
     </div>
   )
 }
