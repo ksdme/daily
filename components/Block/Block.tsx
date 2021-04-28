@@ -1,14 +1,15 @@
 import useColor from '../../hooks/useColor'
 
 interface Props {
-  title: string
+  text: string
   units: number
   unit?: number
+  colorSeed: string
 }
 
-export default function Block({ title, units, unit = 6 }: Props) {
+export default function Block({ text, colorSeed, units, unit = 6 }: Props) {
   const bgColor = (
-    useColor(title)
+    useColor(colorSeed)
   )
 
   const style = {
@@ -16,13 +17,9 @@ export default function Block({ title, units, unit = 6 }: Props) {
   }
 
   return (
-    <div className="w-1/4 flex flex-col">
-      <div className="text-sm text-gray-600">
-        {title}
-      </div>
-
-      <div style={style} className={`bg-${bgColor} rounded shadow`}>
-        &nbsp;
+    <div style={style} className={`w-9/12 md:w-1/4 bg-${bgColor} rounded shadow`}>
+      <div className="m-2 text-sm text-white">
+        {text}
       </div>
     </div>
   )
