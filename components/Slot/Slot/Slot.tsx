@@ -1,29 +1,28 @@
-import classnames from 'classnames'
 import useColor from '../../../hooks/useColor'
+import { SlotModel } from '../../../hooks/useSchedule'
 import useSlotTime from '../../../hooks/useSlotTime'
 import Block from '../../Block/Block'
 import Hand from '../../Hand/Hand'
 
 interface Props {
-  title: string
+  slot: SlotModel,
   duration: number
-  starts: number
 }
 
-export default function Slot({ title, duration, starts }: Props) {
+export default function Slot({ slot, duration }: Props) {
   const color = (
-    useColor(title)
+    useColor(slot.title)
   )
 
   const time = (
-    useSlotTime(starts)
+    useSlotTime(slot.starts)
   )
 
   return (
     <div className="my-2 relative z-10">
       <div className={`flex items-center`}>
         <Block text={time} units={duration} color={color} />
-        <Hand text={title} handColor="gray-300" />
+        <Hand text={slot.title} handColor="gray-300" />
       </div>
 
       <div className="absolute w-full -z-10 top-0">

@@ -1,12 +1,13 @@
 import useHeight from '../../../hooks/useHeight'
 import useIdleMessage from '../../../hooks/useIdleMessage'
+import { SlotModel } from '../../../hooks/useSchedule'
 
 interface Props {
-  starts: number
+  slot: SlotModel
   duration: number
 }
 
-export default function Idle({ starts, duration }: Props) {
+export default function Idle({ slot, duration }: Props) {
   const height = (
     useHeight(duration)
   )
@@ -14,7 +15,7 @@ export default function Idle({ starts, duration }: Props) {
   const {
     action,
     result,
-  } = useIdleMessage(starts)
+  } = useIdleMessage(slot.starts)
 
   const style = {
     height: `${height}rem`

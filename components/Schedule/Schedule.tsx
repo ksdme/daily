@@ -1,5 +1,7 @@
 import React from 'react'
 import useSchedule, { ScheduleModel } from '../../hooks/useSchedule'
+import useTicker from '../../hooks/useTicker'
+import useTimeUnit from '../../hooks/useTimeUnit'
 import IdleSlot from '../Slot/Idle/Idle'
 import ScheduleSlot from '../Slot/Slot/Slot'
 
@@ -12,6 +14,14 @@ export default function Schedule({ schedule }: Props) {
     useSchedule(schedule)
   )
 
+  const lastTick = useTicker(
+    60 * 1000
+  )
+
+  const timeUnit = (
+    useTimeUnit(lastTick)
+  )
+
   const elements = sortedSchedule.map((slot, index) => {
     const duration = (
       slot.ends - slot.starts
@@ -21,17 +31,16 @@ export default function Schedule({ schedule }: Props) {
       return (
         <IdleSlot
           key={index}
-          duration={duration}
-          starts={slot.starts} />
+          slot={slot}
+          duration={duration} />
       )
     }
 
     return (
       <ScheduleSlot
         key={index}
-        title={slot.title}
-        duration={duration}
-        starts={slot.starts} />
+        slot={slot}
+        duration={duration} />
     )
   })
 
