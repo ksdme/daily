@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-orienta {
+  font-family: 'Orienta', sans-serif;
+}
+
+html, body {
+  @apply font-orienta
+}
