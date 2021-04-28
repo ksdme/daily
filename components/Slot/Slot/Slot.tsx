@@ -1,6 +1,6 @@
 import classnames from 'classnames'
-import Block from '../Block/Block'
-import Hand from '../Hand/Hand'
+import Block from '../../Block/Block'
+import Hand from '../../Hand/Hand'
 
 interface Props {
   title: string
