@@ -21,7 +21,8 @@ export default function Schedule({ schedule }: Props) {
       return (
         <IdleSlot
           key={index}
-          duration={duration} />
+          duration={duration}
+          starts={slot.starts} />
       )
     }
 

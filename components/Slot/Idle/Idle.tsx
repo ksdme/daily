@@ -2,10 +2,11 @@ import useHeight from '../../../hooks/useHeight'
 import useIdleMessage from '../../../hooks/useIdleMessage'
 
 interface Props {
+  starts: number
   duration: number
 }
 
-export default function Idle({ duration }: Props) {
+export default function Idle({ starts, duration }: Props) {
   const height = (
     useHeight(duration)
   )
@@ -13,7 +14,7 @@ export default function Idle({ duration }: Props) {
   const {
     action,
     result,
-  } = useIdleMessage()
+  } = useIdleMessage(starts)
 
   const style = {
     height: `${height}rem`
