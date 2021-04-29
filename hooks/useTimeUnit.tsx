@@ -9,5 +9,6 @@ export default function useTimeUnit(milliseconds: number) {
   const age = target.diff(today, 'minutes')
   const units = age / 15
 
-  return Math.ceil(units)
+  // Returns the current slot.
+  return Math.floor(units)
 }
