@@ -20,7 +20,7 @@ export default function Home() {
   )
 
   return (
-    <div className="w-screen h-screen flex flex-col px-4 py-2">
+    <div className="flex flex-col px-4 py-2">
       <NowContext.Provider value={timeUnit}>
         <Schedule schedule={schedule} />
       </NowContext.Provider>
