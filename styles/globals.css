@@ -10,6 +10,13 @@
   z-index: -10;
 }
 
+.bg-pattern {
+  background-color: #fff;
+  background-size: 20px 20px;
+  background-image: radial-gradient(rgba(191, 219, 254, 1) 1px, #fff 1px);
+}
+
 html, body {
-  @apply font-orienta
+  @apply font-orienta;
+  @apply bg-pattern;
 }

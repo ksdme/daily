@@ -15,7 +15,9 @@ export default function Hand({ text, handColor = 'gray-600', textColor = 'black'
   return (
     <div className={`w-full ${classes}`}>
       <div className={`text-right text-sm text-${textColor} line-clamp-1`}>
-        {text}
+        <span className="bg-white">
+          {text}
+        </span>
       </div>
 
       <div className={`h-0.5 rounded-r bg-${handColor}`}>

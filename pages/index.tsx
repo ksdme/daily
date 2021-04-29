@@ -25,7 +25,7 @@ export default function Home({ user }: Props) {
 
   return (
     <div className="flex flex-col items-center px-4 py-2">
-      <div className="text-gray-400 my-16">
+      <div className="bg-white text-gray-400 my-16">
         {user.name}
       </div>
 
