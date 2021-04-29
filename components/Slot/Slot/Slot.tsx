@@ -4,7 +4,7 @@ import useColor from '../../../hooks/useColor'
 import useKeepInView from '../../../hooks/useKeepInView'
 import { SlotModel } from '../../../hooks/useSchedule'
 import useSlotTimeLabel from '../../../hooks/useSlotTimeLabel'
-import buildProgressPosition from '../../../utils/buildProgressPosition'
+import makeProgressPositionStyle from '../../../utils/makeProgressPositionStyle'
 import Block from '../../Block/Block'
 import Hand from '../../Hand/Hand'
 
@@ -42,7 +42,7 @@ export default function Slot({ slot }: Props) {
       (now - slot.starts) / (slot.ends - slot.starts)
     )
 
-    nowStyle = buildProgressPosition(
+    nowStyle = makeProgressPositionStyle(
       fraction,
     )
 
