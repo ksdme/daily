@@ -7,7 +7,6 @@ const actionOptions = [
   'relax',
   'take a deep breath',
   'look away from screens',
-  'smile for no reason',
   'listen to a song',
 ]
 
