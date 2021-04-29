@@ -31,7 +31,7 @@ export default function useSchedule(day: ScheduleModel) {
           title: null,
           starts: dayAccountedUntil,
           ends: slot.starts,
-          duration: Math.min(slot.starts, dayAccountedUntil + 3),
+          duration: Math.min(slot.starts - dayAccountedUntil, 2.5),
         })
       }
 
