@@ -28,7 +28,7 @@ export default function Slot({ slot }: Props) {
     display: 'none',
   }
 
-  if (now >= slot.starts && now <= slot.ends) {
+  if (now >= slot.starts && now < slot.ends) {
     nowStyle = buildProgressPosition(
       (now - slot.starts) / (slot.ends - slot.starts)
     )
