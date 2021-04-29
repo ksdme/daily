@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import isClient from '../utils/isClient'
 
 export default function useKeepInView() {
@@ -16,9 +16,17 @@ export default function useKeepInView() {
         top: elementTop,
       } = ref.current.getBoundingClientRect()
 
-      const top = (
-        elementTop - rootTop - window.innerHeight / 2
+      const absoluteTop = (
+        elementTop - rootTop
       )
+
+      if (absoluteTop === 0) {
+        return
+      }
+
+      const top = absoluteTop > 0
+        ? absoluteTop - window.innerHeight / 2
+        : absoluteTop + window.innerHeight / 2
 
       window.scroll({
         top,
@@ -27,6 +35,11 @@ export default function useKeepInView() {
       })
     }
   }
+
+  useEffect(
+    bringIntoView,
+    [ref.current],
+  )
 
   return {
     ref,
