@@ -23,24 +23,18 @@ export default function Schedule({ schedule }: Props) {
   )
 
   const elements = sortedSchedule.map((slot, index) => {
-    const duration = (
-      slot.ends - slot.starts
-    )
-
     if (slot.title === null) {
       return (
         <IdleSlot
           key={index}
-          slot={slot}
-          duration={duration} />
+          slot={slot} />
       )
     }
 
     return (
       <ScheduleSlot
         key={index}
-        slot={slot}
-        duration={duration} />
+        slot={slot} />
     )
   })
 

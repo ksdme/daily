@@ -4,12 +4,11 @@ import { SlotModel } from '../../../hooks/useSchedule'
 
 interface Props {
   slot: SlotModel
-  duration: number
 }
 
-export default function Idle({ slot, duration }: Props) {
+export default function Idle({ slot }: Props) {
   const height = (
-    useHeight(duration)
+    useHeight(slot.duration)
   )
 
   const {

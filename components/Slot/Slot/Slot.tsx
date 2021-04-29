@@ -5,11 +5,10 @@ import Block from '../../Block/Block'
 import Hand from '../../Hand/Hand'
 
 interface Props {
-  slot: SlotModel,
-  duration: number
+  slot: SlotModel
 }
 
-export default function Slot({ slot, duration }: Props) {
+export default function Slot({ slot }: Props) {
   const color = (
     useColor(slot.title)
   )
@@ -21,7 +20,7 @@ export default function Slot({ slot, duration }: Props) {
   return (
     <div className="my-2 relative z-10">
       <div className={`flex items-center`}>
-        <Block text={time} units={duration} color={color} />
+        <Block text={time} units={slot.duration} color={color} />
         <Hand text={slot.title} handColor="gray-300" />
       </div>
 
