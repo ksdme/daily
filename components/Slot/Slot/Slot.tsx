@@ -34,7 +34,7 @@ export default function Slot({ slot }: Props) {
   }
 
   let blockContainerStyle: any = {
-    'align-items': 'center',
+    alignItems: 'center',
   }
 
   if (now >= slot.starts && now < slot.ends) {
@@ -51,7 +51,7 @@ export default function Slot({ slot }: Props) {
     // to make space for the indicator.
     if (fraction >= 0.4 && fraction <= 0.7) {
       blockContainerStyle = {
-        'align-items': 'start',
+        alignItems: 'start',
       }
     }
 
