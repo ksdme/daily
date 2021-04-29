@@ -8,7 +8,8 @@ const schedule: ScheduleModel = [
   { starts: 44, ends: 46, title: 'Wake up' },
   { starts: 47, ends: 49, title: 'Start the day' },
   { starts: 56, ends: 58, title: 'Attend meetings' },
-  { starts: 58, ends: 62, title: 'Attend meetings' },
+  { starts: 58, ends: 60, title: 'Attend meetings' },
+  { starts: 60, ends: 62, title: 'Attend meetings' },
 ]
 
 export default function Home() {
