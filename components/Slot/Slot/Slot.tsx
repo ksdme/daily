@@ -17,7 +17,7 @@ export default function Slot({ slot }: Props) {
     useColor(slot.title + slot.starts.toString())
   )
 
-  const time = (
+  const slotStartTime = (
     useSlotTimeLabel(slot.starts)
   )
 
@@ -44,7 +44,7 @@ export default function Slot({ slot }: Props) {
   return (
     <div className="my-2 relative z-10">
       <div className={`flex items-center`}>
-        <Block text={time} units={slot.duration} color={color} />
+        <Block text={slotStartTime} units={slot.duration} color={color} />
         <Hand text={slot.title} handColor="gray-300" />
       </div>
 
