@@ -22,10 +22,12 @@ export default function Home() {
   )
 
   return (
-    <div className="flex flex-col px-4 py-2">
-      <NowContext.Provider value={timeUnit}>
-        <Schedule schedule={schedule} />
-      </NowContext.Provider>
+    <div className="flex flex-col items-center px-4 py-2">
+      <div className="md:w-9/12 md:m-16 lg:w-1/2">
+        <NowContext.Provider value={timeUnit}>
+          <Schedule schedule={schedule} />
+        </NowContext.Provider>
+      </div>
     </div>
   )
 }
