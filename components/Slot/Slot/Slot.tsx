@@ -13,7 +13,7 @@ interface Props {
 
 export default function Slot({ slot }: Props) {
   const color = (
-    useColor(slot.title)
+    useColor(slot.title + slot.starts.toString())
   )
 
   const time = (
