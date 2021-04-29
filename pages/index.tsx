@@ -3,6 +3,7 @@ import NowContext from '../contexts/now'
 import { ScheduleModel } from '../hooks/useSchedule'
 import useTicker from '../hooks/useTicker'
 import useTimeUnit from '../hooks/useTimeUnit'
+import schedule from '../schedules/ksdme'
 
 export interface UserModel {
   name: string
@@ -13,18 +14,7 @@ interface Props {
   user: UserModel
 }
 
-const sample: UserModel = {
-  schedule: [
-    { starts: 44, ends: 46, title: 'Wake up' },
-    { starts: 47, ends: 49, title: 'Start the day' },
-    { starts: 56, ends: 58, title: 'Attend meetings' },
-    { starts: 58, ends: 60, title: 'Attend meetings' },
-    { starts: 60, ends: 62, title: 'Attend meetings' },
-  ],
-  name: '@ksdme',
-}
-
-export default function Home({ user = sample }: Props) {
+export default function Home({ user }: Props) {
   const lastTick = useTicker(
     60 * 1000
   )
@@ -46,4 +36,10 @@ export default function Home({ user = sample }: Props) {
       </div>
     </div>
   )
+}
+
+Home.getInitialProps = async (): Promise<Props> => {
+  return {
+    user: schedule,
+  }
 }
