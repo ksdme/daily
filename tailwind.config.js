@@ -11,6 +11,7 @@ module.exports = {
         'bg-indigo-600',
         'bg-green-600',
         'bg-purple-600',
+        'bg-gray-300',
         'bg-gray-600',
         'bg-black',
         'text-red-600',
