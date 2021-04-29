@@ -39,7 +39,7 @@ export default function Home({ user = sample }: Props) {
         {user.name}
       </div>
 
-      <div className="md:w-9/12 md:m-16 lg:w-1/2">
+      <div className="md:w-9/12 md:m-16 lg:w-1/3">
         <NowContext.Provider value={timeUnit}>
           <Schedule schedule={user.schedule} />
         </NowContext.Provider>
