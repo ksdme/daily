@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import NowContext from '../../../contexts/now'
 import useColor from '../../../hooks/useColor'
+import useKeepInView from '../../../hooks/useKeepInView'
 import { SlotModel } from '../../../hooks/useSchedule'
 import useSlotTimeLabel from '../../../hooks/useSlotTimeLabel'
 import buildProgressPosition from '../../../utils/buildProgressPosition'
@@ -24,6 +25,10 @@ export default function Slot({ slot }: Props) {
     NowContext,
   )
 
+  const nowIndicatorHand = (
+    useKeepInView()
+  )
+
   let nowStyle: any = {
     display: 'none',
   }
@@ -32,6 +37,8 @@ export default function Slot({ slot }: Props) {
     nowStyle = buildProgressPosition(
       (now - slot.starts) / (slot.ends - slot.starts)
     )
+
+    nowIndicatorHand.bringIntoView()
   }
 
   return (
@@ -41,7 +48,7 @@ export default function Slot({ slot }: Props) {
         <Hand text={slot.title} handColor="gray-300" />
       </div>
 
-      <div style={nowStyle} className="absolute w-full -z-10">
+      <div style={nowStyle} className="absolute w-full -z-10" ref={nowIndicatorHand.ref}>
         <Hand text="Now" handColor={color} textColor={color} />
       </div>
     </div>
