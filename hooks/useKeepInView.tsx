@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import isClient from '../utils/isClient'
 
 export default function useKeepInView() {
@@ -19,11 +19,6 @@ export default function useKeepInView() {
       })
     }
   }
-
-  useEffect(
-    bringIntoView,
-    [ref.current],
-  )
 
   return {
     ref,
