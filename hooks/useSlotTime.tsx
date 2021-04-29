@@ -1,11 +1,12 @@
 import { useMemo } from 'react'
 import dayjs from 'dayjs'
+import { UnitTime } from '../config'
 
 export default function useSlotTime(offsetUnits: number) {
   const builder = () => {
     return dayjs()
       .startOf('day')
-      .set('minutes', offsetUnits * 15)
+      .set('minutes', offsetUnits * UnitTime)
       .format('h:mm A')
   }
 
