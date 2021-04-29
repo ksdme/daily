@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import dayjs from 'dayjs'
 import { UnitTime } from '../config'
 
-export default function useSlotTime(offsetUnits: number) {
+export default function useSlotTimeLabel(offsetUnits: number) {
   const builder = () => {
     return dayjs()
       .startOf('day')
