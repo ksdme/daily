@@ -33,17 +33,34 @@ export default function Slot({ slot }: Props) {
     display: 'none',
   }
 
+  let blockContainerStyle: any = {
+    'align-items': 'center',
+  }
+
   if (now >= slot.starts && now < slot.ends) {
-    nowStyle = buildProgressPosition(
+    const fraction = (
       (now - slot.starts) / (slot.ends - slot.starts)
     )
+
+    nowStyle = buildProgressPosition(
+      fraction,
+    )
+
+    // To prevent the information hand and the indicator hand overlaying
+    // on top of each other, move the information hand away to the top
+    // to make space for the indicator.
+    if (fraction >= 0.4 && fraction <= 0.7) {
+      blockContainerStyle = {
+        'align-items': 'start',
+      }
+    }
 
     nowIndicatorHand.bringIntoView()
   }
 
   return (
     <div className="my-2 relative z-10">
-      <div className={`flex items-center`}>
+      <div style={blockContainerStyle} className="flex">
         <Block text={slotStartTime} units={slot.duration} color={color} />
         <Hand text={slot.title} handColor="gray-300" />
       </div>
