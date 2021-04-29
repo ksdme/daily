@@ -1,5 +1,4 @@
 import { useMemo } from 'react'
-import sortBy from 'lodash.sortby'
 
 export interface SlotModel {
   title?: string
@@ -14,15 +13,10 @@ export type ScheduleModel = (
 
 export default function useSchedule(day: ScheduleModel) {
   const buildSchedule = () => {
-    const sorted = sortBy(
-      day,
-      (slot) => slot.starts,
-    )
-
     const schedule: ScheduleModel = []
     let dayAccountedUntil: number = 0
 
-    sorted.forEach((slot, index) => {
+    day.forEach((slot, index) => {
       // Ignore the day until the first filled slot and also ignore
       // all the breaks that are smaller than 2 units of time. Also,
       // enforces a maximum duration of the idle slot.
