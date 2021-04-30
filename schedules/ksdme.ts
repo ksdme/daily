@@ -21,5 +21,5 @@ export default {
     { starts: units(24, 0),  ends: units(25, 0),   title: 'Project' },
     { starts: units(25, 0),   ends: units(25, 30),  title: 'Wind down' },
   ],
-  name: '@ksdme',
+  name: 'ksdme',
 }
