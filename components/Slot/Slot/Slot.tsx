@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import NowContext from '../../../contexts/now'
 import useColor from '../../../hooks/useColor'
 import useKeepInView from '../../../hooks/useKeepInView'
@@ -29,6 +29,10 @@ export default function Slot({ slot }: Props) {
     useKeepInView()
   )
 
+  const active = (
+    now >= slot.starts && now < slot.ends
+  )
+
   let nowStyle: any = {
     display: 'none',
   }
@@ -37,7 +41,18 @@ export default function Slot({ slot }: Props) {
     alignItems: 'center',
   }
 
-  if (now >= slot.starts && now < slot.ends) {
+  // Runs everytime the current time unit has been updated.
+  // Also, re-centers the hand only if the current slot is the
+  // active one.
+  useEffect(() => {
+    if (active) {
+      nowIndicatorHand.bringIntoView()
+    }
+  }, [now])
+
+  // This is not part of the hook because it calculates some conditional
+  // styling of sub components and it does need to run on ever render.
+  if (active) {
     const fraction = (
       (now - slot.starts) / (slot.ends - slot.starts)
     )
@@ -49,13 +64,11 @@ export default function Slot({ slot }: Props) {
     // To prevent the information hand and the indicator hand overlaying
     // on top of each other, move the information hand away to the top
     // to make space for the indicator.
-    if (fraction >= 0.4 && fraction <= 0.7) {
+    if (fraction >= 0.35 && fraction <= 0.65) {
       blockContainerStyle = {
         alignItems: 'start',
       }
     }
-
-    nowIndicatorHand.bringIntoView()
   }
 
   return (
