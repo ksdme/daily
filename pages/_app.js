@@ -13,9 +13,9 @@ if (isClient()) {
 }
 
 // Apply plugins and set default timezone.
-dayjs.extend(utc)
-dayjs.extend(timezone)
-dayjs.tz.setDefault('Asia/Kolkata')
+// dayjs.extend(utc)
+// dayjs.extend(timezone)
+// dayjs.tz.setDefault('Asia/Kolkata')
 
 function App({ Component, pageProps }) {
   return (
