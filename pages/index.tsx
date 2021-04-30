@@ -18,6 +18,8 @@ interface Props {
 }
 
 export default function Home({ user }: Props) {
+  console.log(new Date())
+
   const lastTick = useTicker(
     60 * 1000
   )
