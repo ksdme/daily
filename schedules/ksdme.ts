@@ -19,7 +19,7 @@ export default {
     { starts: units(22, 45), ends: units(23, 45), title: 'Project' },
     { starts: units(23, 45), ends: units(0, 0),   title: 'Break' },
     { starts: units(0, 0),   ends: units(1, 0),   title: 'Project' },
-    { starts: units(1, 0),   ends: units(1, 30),  title: 'Wind down' },
+    { starts: units(1, 0),   ends: units(3, 30),  title: 'Wind down' },
   ],
   name: 'Kilari Teja',
 }
