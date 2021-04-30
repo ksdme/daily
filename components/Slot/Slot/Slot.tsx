@@ -71,6 +71,10 @@ export default function Slot({ slot }: Props) {
     }
   }
 
+  console.log(
+    nowStyle,
+  )
+
   return (
     <div className="my-2 relative z-10">
       <div style={blockContainerStyle} className="flex">
