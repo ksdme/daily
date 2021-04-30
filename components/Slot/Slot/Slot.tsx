@@ -75,7 +75,7 @@ export default function Slot({ slot }: Props) {
     <div className="my-2 relative z-10">
       <div style={blockContainerStyle} className="flex">
         <Block text={slotStartTime} units={slot.duration} color={color} />
-        <Hand text={slot.title} handColor="gray-300" />
+        <Hand text={slot.title} handColor="gray-300" /> {now}
       </div>
 
       <div style={nowStyle} className="absolute w-full -z-10" ref={nowIndicatorHand.ref}>
