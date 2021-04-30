@@ -33,8 +33,12 @@ export default function Slot({ slot }: Props) {
     now >= slot.starts && now < slot.ends
   )
 
+  const nowClasses = active
+    ? 'block'
+    : 'hidden'
+
   let nowStyle: any = {
-    display: 'none',
+
   }
 
   let blockContainerStyle: any = {
@@ -71,10 +75,6 @@ export default function Slot({ slot }: Props) {
     }
   }
 
-  console.log(
-    nowStyle,
-  )
-
   return (
     <div className="my-2 relative z-10">
       <div style={blockContainerStyle} className="flex">
@@ -82,7 +82,7 @@ export default function Slot({ slot }: Props) {
         <Hand text={slot.title} handColor="gray-300" />
       </div>
 
-      <div style={nowStyle} className="absolute w-full -z-10" ref={nowIndicatorHand.ref}>
+      <div style={nowStyle} className={`${nowClasses} absolute w-full -z-10`} ref={nowIndicatorHand.ref}>
         <Hand text="Now" handColor={color} textColor={color} />
       </div>
     </div>
