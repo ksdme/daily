@@ -1,3 +1,4 @@
+import Content from '../components/Content/Content'
 import Hand from '../components/Hand/Hand'
 import Schedule from '../components/Schedule/Schedule'
 import NowContext from '../contexts/now'
@@ -30,20 +31,20 @@ export default function Home({ user }: Props) {
   )
 
   return (
-    <div className="flex flex-col items-end px-4 py-2">
-      <div className="w-full bg-white text-gray-400 py-4">
+    <div className="flex flex-col items-center px-4 py-2">
+      <Content className="py-6">
         <Hand
           center={false}
           text={user.name}
           handColor={nameColor}
           textColor={nameColor} />
-      </div>
+      </Content>
 
-      <div className="md:w-9/12 md:m-16 lg:w-1/3 xl:w-2/5">
+      <Content>
         <NowContext.Provider value={timeUnit}>
           <Schedule schedule={user.schedule} />
         </NowContext.Provider>
-      </div>
+      </Content>
     </div>
   )
 }
