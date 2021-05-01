@@ -1,4 +1,5 @@
 import { useContext, useEffect } from 'react'
+import { If } from 'react-if'
 import NowContext from '../../../contexts/now'
 import useColor from '../../../hooks/useColor'
 import useKeepInView from '../../../hooks/useKeepInView'
@@ -33,13 +34,12 @@ export default function Slot({ slot }: Props) {
     now >= slot.starts && now < slot.ends
   )
 
-  let nowStyle: any = {
-    display: 'none',
-  }
-
   let blockContainerStyle: any = {
     alignItems: 'center',
   }
+
+  // Style for the now hand
+  let nowStyle: any = null
 
   // Runs everytime the current time unit has been updated.
   // Also, re-centers the hand only if the current slot is the
@@ -78,9 +78,11 @@ export default function Slot({ slot }: Props) {
         <Hand text={slot.title} handColor="gray-300" />
       </div>
 
-      <div style={nowStyle} className="absolute w-full -z-10" ref={nowIndicatorHand.ref}>
-        <Hand text="Now" handColor={color} textColor={color} />
-      </div>
+      <If condition={active}>
+        <div style={nowStyle} className="absolute w-full -z-10" ref={nowIndicatorHand.ref}>
+          <Hand text="Now" handColor={color} textColor={color} />
+        </div>
+      </If>
     </div>
   )
 }
