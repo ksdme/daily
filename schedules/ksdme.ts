@@ -21,5 +21,5 @@ export default {
     { starts: units(0, 0),   ends: units(1, 0),   title: 'Project' },
     { starts: units(1, 0),   ends: units(3, 30),  title: 'Wind down' },
   ],
-  name: 'Kilari Teja',
+  name: 'ksdme',
 }
